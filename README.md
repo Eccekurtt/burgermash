@@ -243,12 +243,6 @@ node scripts/demo-data.mjs          # yerel veritabanına uydurma demo siparişl
 node scripts/screenshots.mjs        # docs/screenshots/ altına yazar
 ```
 
-## Bilinen sınırlar ve olası geliştirmeler
-
-- Mutfak ve admin ekranları yalnızca Türkçe (müşteri arayüzü iki dilli).
-- Ödeme yoktur; kartla ödeme (örn. Stripe test modu) eklenebilir.
-- Menü ve ürün çevirileri `web/lib/menu-en.ts` içinde tutuluyor; admin panelinden çeviri girişi yok.
-- Ücretsiz sunucu uyku moduna geçebilir; ilk istek yavaş olur.
 
 ## Lisans ve kaynaklar
 
