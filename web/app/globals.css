@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #150e09;
+  --cream: #fff1d6;
+  --ketchup: #e8392b;
+  --mustard: #ffb81c;
+  --bun: #d98a2b;
+  --leaf: #6bbf3a;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --color-ketchup: var(--ketchup);
+  --color-ketchup-deep: #c42a1e; /* küçük yazıların üstünde yeterli kontrast (5:1) */
+  --color-mustard: var(--mustard);
+  --color-bun: var(--bun);
+  --color-leaf: var(--leaf);
+  --font-display: var(--font-bricolage);
+}
+
+html {
+  background: var(--ink);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--mustard);
+  color: var(--ink);
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+.floaty { animation: floaty 6s ease-in-out infinite; }
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .floaty { animation: none; }
+}

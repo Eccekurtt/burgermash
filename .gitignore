@@ -1,0 +1,28 @@
+# Bağımlılıklar ve derleme çıktıları
+node_modules/
+dist/
+dist-e2e/
+.next/
+.next-*/
+coverage/
+
+# Yerel veritabanı (gömülü PostgreSQL)
+.pgdata/
+
+# Ortam dosyaları (örnekleri .env.example olarak tutulur)
+.env
+.env.*
+!.env.example
+
+# Test çıktıları
+test-results/
+playwright-report/
+
+# Editör / araç
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tsbuildinfo

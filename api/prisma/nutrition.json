@@ -1,0 +1,292 @@
+{
+ "klasik": {
+  "calories": 640,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "cifte": {
+  "calories": 920,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "bacon": {
+  "calories": 980,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "bbq": {
+  "calories": 1010,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "jalapeno": {
+  "calories": 780,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": [
+   "spicy"
+  ]
+ },
+ "mantar": {
+  "calories": 810,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "tavuk": {
+  "calories": 720,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame"
+  ],
+  "dietary": []
+ },
+ "acili-tavuk": {
+  "calories": 760,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": [
+   "spicy"
+  ]
+ },
+ "garden": {
+  "calories": 610,
+  "allergens": [
+   "gluten",
+   "sesame",
+   "soy",
+   "mustard"
+  ],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "slider": {
+  "calories": 840,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "sesame",
+   "mustard"
+  ],
+  "dietary": []
+ },
+ "patates": {
+  "calories": 380,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "baharatli": {
+  "calories": 400,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "halka": {
+  "calories": 450,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "tenders": {
+  "calories": 520,
+  "allergens": [
+   "gluten",
+   "egg",
+   "milk"
+  ],
+  "dietary": []
+ },
+ "mozzarella": {
+  "calories": 480,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "coleslaw": {
+  "calories": 190,
+  "allergens": [
+   "egg",
+   "mustard"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "milkshake": {
+  "calories": 560,
+  "allergens": [
+   "milk"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "brownie": {
+  "calories": 480,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg",
+   "nuts"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "cheesecake": {
+  "calories": 430,
+  "allergens": [
+   "gluten",
+   "milk",
+   "egg"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "sundae": {
+  "calories": 390,
+  "allergens": [
+   "milk",
+   "gluten"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "churros": {
+  "calories": 410,
+  "allergens": [
+   "gluten",
+   "egg"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "limonata": {
+  "calories": 120,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "nane": {
+  "calories": 125,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "soguk-cay": {
+  "calories": 90,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "kola": {
+  "calories": 140,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "portakal": {
+  "calories": 110,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ },
+ "kahve": {
+  "calories": 80,
+  "allergens": [
+   "milk"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "ayran": {
+  "calories": 90,
+  "allergens": [
+   "milk"
+  ],
+  "dietary": [
+   "vegetarian"
+  ]
+ },
+ "soda": {
+  "calories": 5,
+  "allergens": [],
+  "dietary": [
+   "vegan",
+   "vegetarian"
+  ]
+ }
+}

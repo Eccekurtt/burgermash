@@ -1,0 +1,4 @@
+dist-e2e
+
+# Prisma tarafından üretilen istemci (npm run db:generate)
+src/generated/

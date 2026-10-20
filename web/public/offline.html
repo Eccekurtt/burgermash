@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BurgerMash — Çevrimdışı / Offline</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #150e09; color: #fff1d6;
+           font-family: system-ui, sans-serif; text-align: center; padding: 24px; }
+    h1 { font-size: 2rem; margin: 16px 0 8px; }
+    p { color: rgba(255,241,214,.65); margin: 4px 0; }
+    button { margin-top: 24px; background: #ffb81c; color: #150e09; border: 0; border-radius: 999px;
+             padding: 12px 28px; font-weight: 800; font-size: 1rem; cursor: pointer; }
+    .big { font-size: 4rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="big">🍔</div>
+    <h1>İnternet bağlantısı yok</h1>
+    <p>Bağlantın gelince siparişine devam edebilirsin.</p>
+    <p lang="en">You're offline. Reconnect to keep ordering.</p>
+    <button onclick="location.reload()">Tekrar dene / Retry</button>
+  </main>
+</body>
+</html>

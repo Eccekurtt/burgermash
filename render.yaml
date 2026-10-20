@@ -1,0 +1,30 @@
+# Render "Blueprint": API'yi ücretsiz planda yayınlar.
+# Veritabanı için Neon (ücretsiz PostgreSQL) önerilir; DATABASE_URL'yi Render panelinden girin.
+# Ayrıntılı adımlar: docs/DEPLOYMENT.md
+services:
+  - type: web
+    name: burgermash-api
+    runtime: node
+    plan: free
+    rootDir: api
+    buildCommand: npm ci --include=dev && npm run build
+    # Migrasyonlar -> (veritabanı boşsa) seed -> API
+    startCommand: npx prisma migrate deploy && npx prisma db seed && node dist/main.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DATABASE_URL
+        sync: false # Neon bağlantı adresini panelden elle girin
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false # Vercel adresiniz, örn. https://burgermash.vercel.app
+      - key: SEED_ADMIN_EMAIL
+        value: admin@burgermash.dev
+      - key: SEED_ADMIN_PASSWORD
+        sync: false # Güçlü bir şifre belirleyin
+      - key: SEED_KITCHEN_EMAIL
+        value: mutfak@burgermash.dev
+      - key: SEED_KITCHEN_PASSWORD
+        sync: false
