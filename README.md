@@ -4,6 +4,13 @@ Elle ezilen burger konseptiyle yapılmış, **uçtan uca bir full stack sipariş
 
 > **Kurgusal bir portföy projesidir.** Markası, menüsü ve fiyatları uydurmadır; gerçek ödeme alınmaz, gerçek sipariş hazırlanmaz.
 
+## Canlı demo
+
+- **Site:** <https://burgermash.vercel.app>
+- **API dokümantasyonu (Swagger):** <https://burgermash-api.onrender.com/docs>
+
+> API ücretsiz katmanda çalıştığı için bir süre kullanılmazsa uykuya geçer; ilk açılış 50 saniyeye kadar sürebilir (bu sırada site yerleşik örnek menüyle açılır). Yayındaki admin ve mutfak hesaplarının şifreleri gizlidir; aşağıdaki demo hesapları yalnızca yerel geliştirme içindir.
+
 ## Neler var?
 
 **Müşteri**
@@ -28,7 +35,7 @@ Elle ezilen burger konseptiyle yapılmış, **uçtan uca bir full stack sipariş
 | Arka yüz | NestJS 12 (modüler monolit), TypeScript, Prisma 7, socket.io, JWT, class-validator, Swagger |
 | Veritabanı | PostgreSQL |
 | Test | Vitest (birim + API e2e), Playwright (tarayıcı e2e) |
-| Altyapı | Docker Compose, GitHub Actions, Vercel + Render + Neon (ücretsiz katmanlar) |
+| Altyapı | Docker (Dockerfile'lar + Compose), GitHub Actions CI, yayın: Vercel (site) + Render (API, Docker) + Neon (PostgreSQL), hepsi ücretsiz katman |
 
 ## Mimari
 

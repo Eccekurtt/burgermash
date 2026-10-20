@@ -13,24 +13,41 @@ Tarayıcı ──▶ Vercel (web)  ──▶ Render (API)  ──▶ Neon (Postg
 1. [neon.tech](https://neon.tech) → yeni proje oluşturun.
 2. Bağlantı adresini (`postgresql://...`) kopyalayın. Sonuna `?sslmode=require` eklenmiş olmalı.
 
-## 2) API: Render
+## 2) API: Render (Docker)
 
 1. Kodu GitHub'a gönderin.
-2. [render.com](https://render.com) → **New → Blueprint** → deponuzu seçin. Kök dizindeki [`render.yaml`](../render.yaml) otomatik okunur.
-3. İstenen ortam değişkenleri:
+2. [render.com](https://render.com) → **New + → Web Service** → deponuzu seçin (Render'a yalnızca bu depo için GitHub erişimi verin).
+3. Ayarlar:
+
+| Alan | Değer |
+|---|---|
+| Language | **Docker** |
+| Name | `burgermash-api` |
+| Region | Neon ile aynı bölge (örn. **Ohio**) |
+| Dockerfile Path | `./api/Dockerfile` |
+| Docker Build Context Directory | `./api` |
+| Instance Type | **Free** |
+| Health Check Path | `/health` |
+
+   > Dockerfile'lar `api/` altında olduğu için yol ve bağlam ayarı şart. Bu ikisi kökte kalırsa derleme 10 saniyede, log'da hiçbir şey göstermeden başarısız olur.
+
+   Alternatif: kökteki [`render.yaml`](../render.yaml) ile **New → Blueprint** (kart bilgisi isteyebilir).
+4. **Environment Variables:**
 
 | Değişken | Değer |
 |---|---|
 | `DATABASE_URL` | Neon bağlantı adresi |
-| `CORS_ORIGINS` | Web adresiniz (3. adımdan sonra güncellenir), örn. `https://burgermash.vercel.app` |
-| `SEED_ADMIN_PASSWORD` | **Güçlü** bir şifre |
-| `SEED_KITCHEN_PASSWORD` | **Güçlü** bir şifre |
-| `JWT_SECRET` | Otomatik üretilir |
+| `CORS_ORIGINS` | Web adresiniz, örn. `https://burgermash.vercel.app` |
+| `JWT_SECRET` | **Generate** düğmesiyle rastgele değer |
+| `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` | Admin hesabı (**güçlü** şifre) |
+| `SEED_KITCHEN_EMAIL` / `SEED_KITCHEN_PASSWORD` | Mutfak hesabı (**güçlü** şifre) |
 
-4. İlk açılışta migrasyonlar çalışır ve menü yüklenir (veritabanı doluysa seed atlanır, adminin fiyat değişiklikleri ezilmez).
-5. `https://<servis-adı>.onrender.com/health` adresinin `{"status":"ok","db":"up"}` döndüğünü kontrol edin. Swagger: `/docs`.
+5. İlk açılışta imaj şunları yapar: migrasyonları uygular → menü boşsa seed eder (doluysa atlar, adminin fiyat değişiklikleri ezilmez) → API'yi başlatır.
+6. `https://<servis-adı>.onrender.com/health` adresinin `{"status":"ok","db":"up"}` döndüğünü kontrol edin. Swagger: `/docs`.
 
-> **Soğuk başlangıç:** Ücretsiz Render servisi bir süre istek almazsa uykuya geçer; ilk istek birkaç on saniye sürebilir. Site bu sırada yerleşik örnek menüyle açılır ve bunu belirtir. İşe alımcıya göndermeden önce siteyi bir kez açıp servisi uyandırmanız iyi olur.
+> **Soğuk başlangıç:** Ücretsiz Render servisi bir süre istek almazsa uykuya geçer; ilk istek 50 saniyeye kadar sürebilir. Site bu sırada yerleşik örnek menüyle açılır ve bunu belirtir. İşe alımcıya göndermeden önce siteyi bir kez açıp servisi uyandırmanız iyi olur.
+>
+> **SSL uyarısı:** Log'da `SECURITY WARNING: The SSL modes ...` uyarısı görürseniz zararsızdır. Susturmak için `DATABASE_URL` sonundaki `sslmode=require` ifadesini `sslmode=verify-full` yapın.
 
 ## 3) Web: Vercel
 

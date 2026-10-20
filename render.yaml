@@ -1,19 +1,16 @@
-# Render "Blueprint": API'yi ücretsiz planda yayınlar.
-# Veritabanı için Neon (ücretsiz PostgreSQL) önerilir; DATABASE_URL'yi Render panelinden girin.
+# Render "Blueprint": API'yi ücretsiz planda, api/Dockerfile ile yayınlar.
+# Veritabanı için Neon (ücretsiz PostgreSQL) kullanılır; DATABASE_URL'yi Render panelinden girin.
 # Ayrıntılı adımlar: docs/DEPLOYMENT.md
 services:
   - type: web
     name: burgermash-api
-    runtime: node
+    runtime: docker
     plan: free
-    rootDir: api
-    buildCommand: npm ci --include=dev && npm run build
-    # Migrasyonlar -> (veritabanı boşsa) seed -> API
-    startCommand: npx prisma migrate deploy && npx prisma db seed && node dist/main.js
+    region: ohio # Neon veritabanıyla aynı bölge
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: ./api
     healthCheckPath: /health
     envVars:
-      - key: NODE_VERSION
-        value: 22
       - key: DATABASE_URL
         sync: false # Neon bağlantı adresini panelden elle girin
       - key: JWT_SECRET
