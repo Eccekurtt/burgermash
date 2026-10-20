@@ -28,8 +28,9 @@ export default defineConfig({
   },
   webServer: [
     {
-      // Playwright web sunucularını globalSetup'tan ÖNCE başlatır; bu yüzden veritabanı hazırlığı burada
-      command: `npx tsx scripts/prepare-db.ts "${E2E_DB_URL}" --reset && npx prisma generate && npx tsc -p tsconfig.build.json --outDir dist-e2e && node dist-e2e/main.js`,
+      // Playwright web sunucularını globalSetup'tan ÖNCE başlatır; bu yüzden veritabanı hazırlığı burada.
+      // Sıra önemli: seed, üretilen Prisma istemcisini (depoda yok) kullandığından önce `prisma generate` gelir.
+      command: `npx prisma generate && npx tsx scripts/prepare-db.ts "${E2E_DB_URL}" --reset && npx tsc -p tsconfig.build.json --outDir dist-e2e && node dist-e2e/main.js`,
       cwd: "../api",
       url: `http://localhost:${API_PORT}/health`,
       reuseExistingServer: !process.env.CI,

@@ -24,8 +24,9 @@ export async function prepareDatabase(url: string, opts: { reset?: boolean } = {
   await client.end();
 
   const env = { ...process.env, ...TEST_ACCOUNTS, DATABASE_URL: url };
-  execSync('npx prisma migrate deploy', { env, stdio: 'ignore' });
-  execSync('npx prisma db seed', { env, stdio: 'ignore' });
+  // stderr görünür kalsın: CI'da hata nedeni gizlenmesin
+  execSync('npx prisma migrate deploy', { env, stdio: ['ignore', 'ignore', 'inherit'] });
+  execSync('npx prisma db seed', { env, stdio: ['ignore', 'ignore', 'inherit'] });
 }
 
 // CLI olarak çalıştırıldıysa
