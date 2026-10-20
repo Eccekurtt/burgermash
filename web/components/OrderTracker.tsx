@@ -86,7 +86,11 @@ export function OrderTracker({ orderId, onDone }: { orderId: string; onDone?: ()
                   scale: i === step && !done ? [1, 1.35, 1] : 1,
                   backgroundColor: i <= step ? "#ffb81c" : "#3a2a1f",
                 }}
-                transition={{ duration: 0.6, repeat: i === step && !done ? Infinity : 0 }}
+                // Yalnızca boyut nabız atar; renk bir kez geçiş yapıp sabit kalır (aksi halde nokta yanıp söner)
+                transition={{
+                  scale: { duration: 0.9, repeat: i === step && !done ? Infinity : 0 },
+                  backgroundColor: { duration: 0.4 },
+                }}
                 className="absolute -left-8 top-0.5 h-6 w-6 rounded-full"
               />
               <span className={i <= step ? "font-bold" : "text-cream/40"}>{t(`status.${s}`)}</span>
